@@ -28,16 +28,27 @@ Next you need to implement loading styles
 
 ```ts
 {
-    themeLoad() {
-    if (this.currentTheme === Themes.LIGHT) {
+    themeLoad(theme: Themes) {
+    if (theme === Themes.LIGHT) {
+      this._isLoadingStyles$.next(true);
       import(
         /* webpackMode: "lazy" */
-        '../styles/themes/theme-light.scss' as any);
-    } else if (this.currentTheme === Themes.DARK) {
+        '../styles/themes/theme-light.scss' as any)
+        .then(() => {
+          this.currentTheme = Themes.LIGHT;
+          this._isLoadingStyles$.next(false);
+        });
+    } else if (theme === Themes.DARK) {
+      this._isLoadingStyles$.next(true);
       import(
         /* webpackMode: "lazy" */
-        '../styles/themes/theme-dark.scss' as any);
+        '../styles/themes/theme-dark.scss' as any)
+        .then(() => {
+          this.currentTheme = Themes.DARK;
+          this._isLoadingStyles$.next(false);
+        });
     }
+  }
   }
 }
 ```
