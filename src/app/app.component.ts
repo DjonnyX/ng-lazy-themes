@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
     if (theme === Themes.LIGHT) {
       this._isLoadingStyles$.next(true);
       import(
-        /* webpackMode: "lazy" */
         '../styles/themes/theme-light.scss' as any)
         .then(() => {
           this.currentTheme = Themes.LIGHT;
@@ -40,7 +39,6 @@ export class AppComponent implements OnInit {
     } else if (theme === Themes.DARK) {
       this._isLoadingStyles$.next(true);
       import(
-        /* webpackMode: "lazy" */
         '../styles/themes/theme-dark.scss' as any)
         .then(() => {
           this.currentTheme = Themes.DARK;
