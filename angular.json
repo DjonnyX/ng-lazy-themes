@@ -27,8 +27,19 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "extractCss": true,
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles/themes/theme-dark.scss",
+                "bundleName": "theme-dark",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/theme-light.scss",
+                "bundleName": "theme-light",
+                "inject": false
+              }
             ],
             "scripts": []
           },
@@ -123,6 +134,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-ui-kit-demo"
+    }
+  },
+  "defaultProject": "ng-ui-kit-demo",
+  "cli": {
+    "analytics": false
+  }
 }

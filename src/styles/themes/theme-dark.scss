@@ -1,0 +1,257 @@
+@import "../../../node_modules/iconsoft-ui-kit/src/themes/make-theme";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/check";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/radio";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/button";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/tabs";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/form";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/input";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/select";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/table";
+@import "../../../node_modules/iconsoft-ui-kit/src/components/typography";
+@import "../../../node_modules/iconsoft-ui-kit/src/modifiers/validation";
+@import "../../../node_modules/iconsoft-ui-kit/src/modifiers/elevation";
+@import "../../../node_modules/iconsoft-ui-kit/src/utils/px2rem";
+
+@font-face {
+    font-family: "CenturyGothic";
+    src: url("~/assets/fonts/Century-Gothic.woff") format("woff"),
+        url("~/assets/fonts/Century-Gothic.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$color-red: #e8423f;
+$color-red-40: lighten($color-red, 40%);
+$color-orange: #ff8a2b;
+$color-orange-40: lighten($color-red, 50%);
+$color-gray: #898989;
+$color-gray-40: rgba($color-gray, 61%);
+$color-gray-100: lighten($color-gray, 40);
+$color-blue-gray: #006c79;
+$color-blue-gray-40: rgba($color-blue-gray, 61%);
+$color-blue: #4ea4f6;
+$color-blue-40: lighten($color-blue, 35%);
+
+$font: "CenturyGothic";
+
+@mixin theme {
+    // theme name
+    .dark {
+        @include z-elevation();
+        @include validation($color-red);
+
+        // Checkbox
+        @include check(
+            (
+                check--primary: (
+                    border: 1px solid white,
+                    checked-icon: "~/assets/icons/check-b.svg",
+                    bg-hover: black,
+                    size: 15px,
+                    font: $font,
+                    font-size: 1rem,
+                    font-color: white,
+                ),
+                check--secondary: (
+                    border: 1px solid white,
+                    checked-icon: "~/assets/icons/check1-b.svg",
+                    bg-hover: black,
+                    size: 15px,
+                    font: $font,
+                    font-size: 1rem,
+                    font-color: white,
+                ),
+            )
+        );
+
+        .check {
+            margin-bottom: px2rem(14);
+        }
+
+        // Radio
+        @include radio(
+            (
+                radio--primary: (
+                    border: px2rem(1) solid white,
+                    border-radius: 50%,
+                    checked-icon: "~/assets/icons/radio1.svg",
+                    bg-hover: black,
+                    size: px2rem(15),
+                    font: $font,
+                    font-size: px2rem(16),
+                    font-color: white,
+                ),
+            )
+        );
+
+        .radio {
+            margin-bottom: px2rem(14);
+        }
+
+        // Table
+        @include table(
+            (
+                table--primary: (
+                    main-bg-color: #444444,
+                    main-border: none,
+                    font-color: white,
+                    cell-border: none,
+                    cell-padding: px2rem(8),
+                    head-border: none,
+                    td-font-size: px2rem(16),
+                    th-bg-color: #3c3c3c,
+                    td-odd-color: #4c4c4c,
+                    th-font-color: white,
+                    th-font-size: px2rem(16),
+                    th-padding: px2rem(8),
+                    font: $font,
+                ),
+            )
+        );
+        .table {
+            th {
+                font-weight: 500;
+            }
+        }
+
+        // Button
+        @include button(
+            (
+                button--primary: (
+                    bg-normal: #ebeeef,
+                    bg-disabled: $color-gray-40,
+                    font-color: black,
+                ),
+                button--orange: (
+                    bg-normal: $color-orange,
+                    bg-disabled: $color-orange-40,
+                    font-color: white,
+                ),
+                button--red: (
+                    bg-normal: $color-red,
+                    bg-disabled: $color-red-40,
+                    font-color: white,
+                ),
+                button--blue: (
+                    bg-normal: $color-blue,
+                    bg-disabled: $color-blue-40,
+                    font-color: white,
+                ),
+            )
+        );
+
+        .button {
+            margin: px2rem(8) 0;
+            padding: px2rem(8);
+            border-radius: px2rem(10);
+            min-width: px2rem(160);
+            font-family: $font;
+            font-size: px2rem(17);
+        }
+
+        // Input
+        @include input(
+            (
+                input--primary: (
+                    bg-normal: #3c3c3c,
+                    bg-disabled: #616161,
+                    placeholder-color: rgb(177, 177, 177),
+                    placeholder-disabled-color: #898989,
+                    border: px2rem(1) solid #898989,
+                    focused-border: px2rem(1) solid #0e8897,
+                ),
+            )
+        );
+
+        .input {
+            margin-bottom: px2rem(14);
+
+            .input-label {
+                margin-bottom: px2rem(14);
+            }
+
+            input {
+                min-height: px2rem(18);
+                border-radius: px2rem(7);
+                padding: px2rem(5) px2rem(8);
+                transition: all 0.1s ease-in-out;
+            }
+
+            .input-label {
+                margin-bottom: px2rem(12);
+            }
+        }
+
+        // Select
+        @include select(
+            (
+                select--primary: (
+                    bg-color: #3c3c3c,
+                    icon: "~/assets/icons/select1.svg",
+                    icon-size: px2rem(20),
+                    m-right: px2rem(16),
+                    font-color: white,
+                    font-size: inherit,
+                    line-height: px2rem(20),
+                    padding: px2rem(5) px2rem(8),
+                    padding-right: px2rem(24),
+                    bg-focused: #474747,
+                    border: px2rem(1) solid #898989,
+                    border-focused: px2rem(1) solid #898989,
+                    border-radius: px2rem(7),
+                ),
+            )
+        );
+
+        .select {
+            margin-bottom: px2rem(14);
+        }
+
+        // Form
+        @include form(
+            (
+                form--primary: (
+                    bg-color: #444444,
+                    padding: px2rem(12),
+                    margin: px2rem(12),
+                    border-radius: px2rem(15),
+                    font: $font,
+                    font-size: px2rem(16),
+                    font-color: white,
+                ),
+            )
+        );
+
+        .form {
+            padding: px2rem(16) px2rem(28);
+            margin: px2rem(12) px2rem(24);
+            border-radius: px2rem(15);
+        }
+    }
+
+    // Tabs
+    @include tabs(
+        (
+            tabs--primary: (
+                border-bottom: 1px solid #ffffff,
+                item-border-weight: px2rem(4),
+                min-width: px2rem(150),
+                padding: px2rem(8) px2rem(14),
+                color-hover: #ffffff,
+                color-selected: #ffffff,
+                color-inactive: rgb(134, 134, 134),
+            )
+        )
+    );
+
+    body.dark {
+        transition: all 0.1s ease-in-out;
+        background-color: #525252;
+    }
+    
+    .label {
+        margin-bottom: px2rem(12);
+    }
+}
+
+@include theme();
