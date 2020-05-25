@@ -12,28 +12,34 @@ export enum Themes {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  currentTheme: Themes = Themes.LIGHT;
+  currentTheme: Themes;
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit() {
-    this.themeLoad();
+    this.themeLoad(Themes.LIGHT);
   }
 
   themeChange() {
-    this.currentTheme = this.currentTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT;
-    this.themeLoad();
+    const theme = this.currentTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT;
+    this.themeLoad(theme);
   }
 
-  themeLoad() {
-    if (this.currentTheme === Themes.LIGHT) {
+  themeLoad(theme: Themes) {
+    if (theme === Themes.LIGHT) {
       import(
         /* webpackMode: "lazy" */
-        '../styles/themes/theme-light.scss' as any);
-    } else if (this.currentTheme === Themes.DARK) {
+        '../styles/themes/theme-light.scss' as any)
+        .then(() => {
+          this.currentTheme = Themes.LIGHT;
+        });
+    } else if (theme === Themes.DARK) {
       import(
         /* webpackMode: "lazy" */
-        '../styles/themes/theme-dark.scss' as any);
+        '../styles/themes/theme-dark.scss' as any)
+        .then(() => {
+          this.currentTheme = Themes.DARK;
+        });
     }
   }
 }
