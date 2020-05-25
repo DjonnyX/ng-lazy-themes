@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 
 export enum Themes {
   LIGHT = "light",
@@ -14,7 +13,7 @@ export enum Themes {
 export class AppComponent implements OnInit {
   currentTheme: Themes;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor() {}
 
   ngOnInit() {
     this.themeLoad(Themes.LIGHT);
