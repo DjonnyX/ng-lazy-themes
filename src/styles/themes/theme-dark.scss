@@ -244,7 +244,7 @@ $font: "CenturyGothic";
         )
     );
 
-    body.dark {
+    .root.dark {
         transition: all 0.1s ease-in-out;
         background-color: #525252;
     }

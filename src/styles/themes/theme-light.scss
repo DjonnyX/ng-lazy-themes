@@ -247,7 +247,7 @@ $button-ripple-color: rgba(0, 0, 0, 0.15);
         )
     );
 
-    body.light {
+    .root.light {
         transition: all 0.1s ease-in-out;
         background-color: #e9e9e9;
     }
