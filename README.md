@@ -1,4 +1,47 @@
-# NgUiKitDemo
+# NgLazyThemes
+
+## Examples
+First of all, add the following to angular.json
+```json
+{
+        // ...
+        "build": {
+          "options": {
+            // ...
+            "extractCss": true,
+            "styles": [
+              "src/styles.scss",
+              {
+                "input": "src/styles/themes/theme-dark.scss",
+                "bundleName": "theme-dark",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/theme-light.scss",
+                "bundleName": "theme-light",
+                "inject": false
+              }
+
+```
+
+Next you need to implement loading styles
+
+```ts
+{
+    themeLoad() {
+    if (this.currentTheme === Themes.LIGHT) {
+      import(
+        /* webpackMode: "lazy" */
+        '../styles/themes/theme-light.scss' as any);
+    } else if (this.currentTheme === Themes.DARK) {
+      import(
+        /* webpackMode: "lazy" */
+        '../styles/themes/theme-dark.scss' as any);
+    }
+  }
+}
+```
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
