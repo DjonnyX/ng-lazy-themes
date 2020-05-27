@@ -22,7 +22,7 @@
     // app components
     @include card-theme();
 
-    &.light {
+    &.root {
         transition: all 0.1s ease-in-out;
         background-color: #e9e9e9;
     }
