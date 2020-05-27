@@ -1,0 +1,31 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/table";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin table-theme {
+    @include table(
+        (
+            table--primary: (
+                main-bg-color: #444444,
+                main-border: none,
+                font-color: white,
+                cell-border: none,
+                cell-padding: px2rem(8),
+                head-border: none,
+                td-font-size: px2rem(16),
+                th-bg-color: #3c3c3c,
+                td-odd-color: #4c4c4c,
+                th-font-color: white,
+                th-font-size: px2rem(16),
+                th-padding: px2rem(8),
+                font: $font,
+            ),
+        )
+    );
+
+    .table {
+        th {
+            font-weight: 500;
+        }
+    }
+}

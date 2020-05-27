@@ -1,0 +1,19 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/tabs";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin tabs-theme {
+    @include tabs(
+        (
+            tabs--primary: (
+                border-bottom: 1px solid #ffffff,
+                item-border-weight: px2rem(4),
+                min-width: px2rem(150),
+                padding: px2rem(8) px2rem(14),
+                color-hover: #ffffff,
+                color-selected: #ffffff,
+                color-inactive: rgb(134, 134, 134),
+            )
+        )
+    );
+}

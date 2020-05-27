@@ -1,0 +1,39 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/button";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin button-theme {
+    @include button(
+        (
+            button--primary: (
+                bg-normal: #ebeeef,
+                bg-disabled: $color-gray-40,
+                font-color: black,
+            ),
+            button--orange: (
+                bg-normal: $color-orange,
+                bg-disabled: $color-orange-40,
+                font-color: white,
+            ),
+            button--red: (
+                bg-normal: $color-red,
+                bg-disabled: $color-red-40,
+                font-color: white,
+            ),
+            button--blue: (
+                bg-normal: $color-blue,
+                bg-disabled: $color-blue-40,
+                font-color: white,
+            ),
+        )
+    );
+
+    .button {
+        margin: px2rem(8) px2rem(8);
+        padding: px2rem(8);
+        border-radius: px2rem(10);
+        min-width: px2rem(160);
+        font-family: $font;
+        font-size: px2rem(17);
+    }
+}

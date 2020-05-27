@@ -1,0 +1,25 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/radio";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin radio-theme {
+    // Radio
+    @include radio(
+        (
+            radio--primary: (
+                border: px2rem(1) solid white,
+                border-radius: 50%,
+                checked-icon: "~/assets/icons/radio1.svg",
+                bg-hover: black,
+                size: px2rem(15),
+                font: $font,
+                font-size: px2rem(16),
+                font-color: white,
+            ),
+        )
+    );
+
+    .radio {
+        margin-bottom: px2rem(14);
+    }
+}

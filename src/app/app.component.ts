@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import '../styles/themes/light/index.scss'; // Default theme
 
 export enum Themes {
   LIGHT = "light",
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit {
     if (theme === Themes.LIGHT) {
       this._isLoadingStyles$.next(true);
       import(
-        '../styles/themes/theme-light.scss' as any)
+        '../styles/themes/light/index.scss' as any)
         .then(() => {
           this.currentTheme = Themes.LIGHT;
           this._isLoadingStyles$.next(false);
@@ -39,7 +40,7 @@ export class AppComponent implements OnInit {
     } else if (theme === Themes.DARK) {
       this._isLoadingStyles$.next(true);
       import(
-        '../styles/themes/theme-dark.scss' as any)
+        '../styles/themes/dark/index.scss' as any)
         .then(() => {
           this.currentTheme = Themes.DARK;
           this._isLoadingStyles$.next(false);

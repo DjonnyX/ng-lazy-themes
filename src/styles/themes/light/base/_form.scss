@@ -1,0 +1,22 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/form";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin form-theme {
+    @include form(
+        (
+            form--primary: (
+                bg-color: $color-main-background,
+                font: $font,
+                font-size: px2rem(16),
+                font-color: $color-main-font,
+            ),
+        )
+    );
+
+    .form {
+        padding: px2rem(16) px2rem(28);
+        margin: px2rem(12) px2rem(24);
+        border-radius: px2rem(15);
+    }
+}

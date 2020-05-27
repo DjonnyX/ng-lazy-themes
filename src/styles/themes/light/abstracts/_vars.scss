@@ -1,0 +1,17 @@
+$color-red: #e8423f;
+$color-red-40: lighten($color-red, 40%);
+$color-orange: #ff8a2b;
+$color-orange-40: lighten($color-red, 50%);
+$color-gray: #898989;
+$color-gray-40: rgba($color-gray, 61%);
+$color-gray-100: lighten($color-gray, 40);
+$color-blue-gray: #006c79;
+$color-blue-gray-40: rgba($color-blue-gray, 61%);
+$color-blue: #4ea4f6;
+$color-blue-40: lighten($color-blue, 35%);
+$color-main-background: white;
+$color-main-font: $color-gray;
+
+$font: "CenturyGothic";
+
+$button-ripple-color: rgba(0, 0, 0, 0.15);

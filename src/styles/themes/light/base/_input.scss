@@ -1,0 +1,37 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/input";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts/";
+
+@mixin input-theme {
+    @include input(
+        (
+            input--primary: (
+                bg-normal: $color-main-background,
+                bg-disabled: #e1e1e1,
+                placeholder-color: rgb(66, 66, 66),
+                placeholder-disabled-color: rgb(121, 121, 121),
+                border: px2rem(1) solid #898989,
+                focused-border: px2rem(1) solid #0e8897,
+            ),
+        )
+    );
+
+    .input {
+        margin-bottom: px2rem(14);
+
+        .input-label {
+            margin-bottom: px2rem(14);
+        }
+
+        input {
+            min-height: px2rem(18);
+            border-radius: px2rem(7);
+            padding: px2rem(5) px2rem(8);
+            transition: all 0.1s ease-in-out;
+        }
+
+        .input-label {
+            margin-bottom: px2rem(12);
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import "../../../../node_modules/@iconsoft/ui-kit/src/components/typography";
+@import "../../../../node_modules/@iconsoft/ui-kit/src/modifiers/validation";
+@import "../../../../node_modules/@iconsoft/ui-kit/src/modifiers/elevation";
+@import "./components";
+@import "./abstracts";
+@import "./base";
+
+.dark {
+    @include z-elevation();
+    @include validation($color-red);
+
+    // base components
+    @include check-theme();
+    @include radio-theme();
+    @include select-theme();
+    @include table-theme();
+    @include button-theme();
+    @include input-theme();
+    @include form-theme();
+    @include tabs-theme();
+
+    &.root {
+        transition: all 0.1s ease-in-out;
+        background-color: #525252;
+    }
+
+    .label {
+        margin-bottom: px2rem(12);
+    }
+}

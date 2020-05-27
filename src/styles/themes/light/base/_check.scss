@@ -1,0 +1,32 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/check";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin check-theme {
+    @include check(
+        (
+            check--primary: (
+                border: px2rem(1) solid $color-gray-40,
+                checked-icon: "~/assets/icons/check.svg",
+                bg-hover: $color-gray-100,
+                size: px2rem(15),
+                font: $font,
+                font-size: px2rem(16),
+                font-color: black,
+            ),
+            check--secondary: (
+                border: px2rem(1) solid $color-gray-40,
+                checked-icon: "~/assets/icons/check1.svg",
+                bg-hover: $color-gray-100,
+                size: px2rem(15),
+                font: $font,
+                font-size: px2rem(16),
+                font-color: black,
+            ),
+        )
+    );
+
+    .check {
+        margin-bottom: px2rem(14);
+    }
+}
