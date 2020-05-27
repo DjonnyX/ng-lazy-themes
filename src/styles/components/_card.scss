@@ -1,0 +1,14 @@
+@import "../../../node_modules/@iconsoft/ui-kit/src/themes/themify";
+@import "../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+
+@mixin card($themes) {
+    .card {
+        overflow: hidden;
+        display: block;
+
+        @include themify($themes) {
+            color: themed(font-color);
+            background: themed(bg-color);
+        }
+    }
+}

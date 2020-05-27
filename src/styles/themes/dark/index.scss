@@ -19,6 +19,9 @@
     @include form-theme();
     @include tabs-theme();
 
+    // app components
+    @include card-theme();
+
     &.root {
         transition: all 0.1s ease-in-out;
         background-color: #525252;

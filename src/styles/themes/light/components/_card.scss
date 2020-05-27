@@ -1,0 +1,18 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../../../components/card";
+@import "../abstracts";
+
+@mixin card-theme {
+    @include card(
+        (
+            card--primary: (
+                bg-color: #ffffff,
+                font-color: $color-gray,
+            ),
+        )
+    );
+
+    .card {
+        font-weight: 500;
+    }
+}
