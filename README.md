@@ -12,12 +12,12 @@ First of all, add the following to angular.json
             "styles": [
               "src/styles.scss",
               {
-                "input": "src/styles/themes/theme-dark.scss",
+                "input": "src/styles/themes/dark/index.scss",
                 "bundleName": "theme-dark",
                 "inject": false
               },
               {
-                "input": "src/styles/themes/theme-light.scss",
+                "input": "src/styles/themes/light/index.scss",
                 "bundleName": "theme-light",
                 "inject": false
               }
@@ -27,13 +27,13 @@ First of all, add the following to angular.json
 Next you need to implement loading styles
 
 ```ts
-{
-    themeLoad(theme: Themes) {
+import '../styles/themes/light/index.scss'; // Default theme
+
+const themeLoad = (theme: Themes) => {
     if (theme === Themes.LIGHT) {
       this._isLoadingStyles$.next(true);
       import(
-        /* webpackMode: "lazy" */
-        '../styles/themes/theme-light.scss' as any)
+        '../styles/themes/light/index.scss' as any)
         .then(() => {
           this.currentTheme = Themes.LIGHT;
           this._isLoadingStyles$.next(false);
@@ -41,15 +41,12 @@ Next you need to implement loading styles
     } else if (theme === Themes.DARK) {
       this._isLoadingStyles$.next(true);
       import(
-        /* webpackMode: "lazy" */
-        '../styles/themes/theme-dark.scss' as any)
+        '../styles/themes/dark/index.scss' as any)
         .then(() => {
           this.currentTheme = Themes.DARK;
           this._isLoadingStyles$.next(false);
         });
     }
-  }
-  }
 }
 ```
 
