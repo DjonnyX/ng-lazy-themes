@@ -1,6 +1,6 @@
-@import "./components";
-@import "./abstracts";
-@import "./base";
+@import './components/lazy-block';
+@import './abstracts';
+@import './base';
 
 .light {
     @include lazy-block-theme();

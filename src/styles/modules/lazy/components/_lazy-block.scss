@@ -1,6 +1,6 @@
 @import "../../../../../node_modules/@iconsoft/ui-kit/src/themes/themify";
 
-@mixin lazy-block {
+@mixin lazy-block($themes) {
     .lazy-block {
         @include themify($themes) {
             .lazy-block__title {
