@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LazyComponent } from './components/lazy/lazy.component';
+import { LazyRoutingModule } from './lazy-routing.module';
 
 @NgModule({
   declarations: [LazyComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    LazyRoutingModule,
   ]
 })
 export class LazyModule { }

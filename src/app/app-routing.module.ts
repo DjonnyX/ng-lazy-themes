@@ -4,7 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
     {
         path: 'lazy',
-        loadChildren: 'src/app/modules/lazy/lazy.module#LazyModule'
+        loadChildren: () =>
+            import('./modules/lazy/lazy.module').then(
+                module => module.LazyModule
+            )
     }
 ];
 
