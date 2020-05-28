@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { ThemeService } from './shared/shared-common/services/theme.service';
 import '../styles/themes/light/index.scss'; // Default theme
-
-export enum Themes {
-  LIGHT = "light",
-  DARK = "dark"
-}
+import { Themes } from './shared/shared-common/enums/themes';
 
 @Component({
   selector: 'app-root',
@@ -14,38 +11,16 @@ export enum Themes {
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  currentTheme: Themes;
-  private _isLoadingStyles$ = new BehaviorSubject<boolean>(false);
-  public isLoadingStyles$ = this._isLoadingStyles$.asObservable();
 
-  constructor() {}
+  public theme$: Observable<Themes>;
+
+  constructor(private _themesService: ThemeService) {}
 
   ngOnInit() {
-    this.loadTheme(Themes.LIGHT);
+    this.theme$ = this._themesService.theme;
   }
 
   toggleTheme() {
-    const theme = this.currentTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT;
-    this.loadTheme(theme);
-  }
-
-  loadTheme(theme: Themes) {
-    if (theme === Themes.LIGHT) {
-      this._isLoadingStyles$.next(true);
-      import(
-        '../styles/themes/light/index.scss' as any)
-        .then(() => {
-          this.currentTheme = Themes.LIGHT;
-          this._isLoadingStyles$.next(false);
-        });
-    } else if (theme === Themes.DARK) {
-      this._isLoadingStyles$.next(true);
-      import(
-        '../styles/themes/dark/index.scss' as any)
-        .then(() => {
-          this.currentTheme = Themes.DARK;
-          this._isLoadingStyles$.next(false);
-        });
-    }
+    this._themesService.toggle();
   }
 }

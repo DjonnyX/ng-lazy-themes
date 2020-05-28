@@ -1,6 +1,6 @@
-<div class="root" [ngClass]="currentTheme">
+<div class="root" [ngClass]="theme$ | async">
   <div class="header">
-    <button class="button button--primary" (click)="toggleTheme()">{{currentTheme}}</button>
+    <button class="button button--primary" (click)="toggleTheme()">{{theme$ | async}}</button>
   </div>
 
   <router-outlet></router-outlet>
