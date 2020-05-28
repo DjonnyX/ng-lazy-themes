@@ -47,6 +47,10 @@ export class ThemeService {
     this.load(theme);
   }
 
+  public reload(): void {
+    this.load(this._theme$.value);
+  }
+
   private load(theme: Themes): void {
     if (this._subscription) {
       this._subscription.unsubscribe();

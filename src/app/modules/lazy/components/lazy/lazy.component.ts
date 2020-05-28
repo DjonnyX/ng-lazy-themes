@@ -24,6 +24,9 @@ export class LazyComponent implements OnInit, OnDestroy {
         console.error(`Theme "${theme}" can't be loaded. ${e}`);
       });
     });
+
+    // load current theme
+    this._themesService.reload();
   }
 
   ngOnDestroy(): void {

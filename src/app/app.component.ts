@@ -30,6 +30,9 @@ export class AppComponent implements OnInit {
         console.error(`Theme "${theme}" can't be loaded. ${e}`);
       });
     });
+
+    // load current theme
+    this._themesService.reload();
   }
 
   toggleTheme() {
