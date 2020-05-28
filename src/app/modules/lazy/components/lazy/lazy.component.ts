@@ -16,11 +16,11 @@ export class LazyComponent implements OnInit {
   ngOnInit(): void {
     this._themesService.addMiddleware('root', (theme: Themes) => {
       if (theme === Themes.DARK)
-        return import('../styles/themes/dark/index.scss' as any).catch(e => {
+        return import('../../../../../styles/modules/lazy/themes/dark/index.scss' as any).catch(e => {
           console.error(`Theme "${theme}" can't be loaded. ${e}`);
         });
 
-      return import('../styles/themes/light/index.scss' as any).catch(e => {
+      return import('../../../../../styles/modules/lazy/themes/light/index.scss' as any).catch(e => {
         console.error(`Theme "${theme}" can't be loaded. ${e}`);
       });
     });
