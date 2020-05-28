@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(private _themesService: ThemeService) { }
 
   ngOnInit() {
-    this.theme$ = this._themesService.theme;
+    this.theme$ = this._themesService.theme$;
 
     this._themesService.addMiddleware('root', (theme: Themes) => {
       if (theme === Themes.DARK)
