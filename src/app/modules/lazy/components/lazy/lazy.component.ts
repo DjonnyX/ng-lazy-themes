@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { Themes } from 'src/app/core/enums/themes';
@@ -9,12 +9,12 @@ import { Themes } from 'src/app/core/enums/themes';
   styleUrls: ['./lazy.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LazyComponent implements OnInit {
+export class LazyComponent implements OnInit, OnDestroy {
 
   constructor(private _themesService: ThemeService) { }
 
   ngOnInit(): void {
-    this._themesService.addMiddleware('root', (theme: Themes) => {
+    this._themesService.addMiddleware('app-lazy', (theme: Themes) => {
       if (theme === Themes.DARK)
         return import('../../../../../styles/modules/lazy/themes/dark/index.scss' as any).catch(e => {
           console.error(`Theme "${theme}" can't be loaded. ${e}`);
@@ -24,5 +24,9 @@ export class LazyComponent implements OnInit {
         console.error(`Theme "${theme}" can't be loaded. ${e}`);
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    this._themesService.removeMiddleware('app-lazy');
   }
 }
