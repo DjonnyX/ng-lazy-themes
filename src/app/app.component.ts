@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ThemeService } from './shared/shared-common/services/theme.service';
 import '../styles/themes/light/index.scss'; // Default theme
 import { Themes } from './shared/shared-common/enums/themes';
