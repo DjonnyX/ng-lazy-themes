@@ -39,6 +39,11 @@
                 "input": "src/styles/themes/light/index.scss",
                 "bundleName": "theme-light",
                 "inject": false
+              },
+              {
+                "input": "src/styles/modules/lazy/index.scss",
+                "bundleName": "lazy-module",
+                "inject": false
               }
             ],
             "scripts": []
