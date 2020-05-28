@@ -21,15 +21,15 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.themeLoad(Themes.LIGHT);
+    this.loadTheme(Themes.LIGHT);
   }
 
-  themeChange() {
+  toggleTheme() {
     const theme = this.currentTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT;
-    this.themeLoad(theme);
+    this.loadTheme(theme);
   }
 
-  themeLoad(theme: Themes) {
+  loadTheme(theme: Themes) {
     if (theme === Themes.LIGHT) {
       this._isLoadingStyles$.next(true);
       import(
