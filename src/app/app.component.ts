@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ThemeService } from './shared/shared-common/services/theme.service';
+import { ThemeService } from './core/services/theme.service';
+import { Themes } from './core/enums/themes';
+
 import '../styles/themes/light/index.scss'; // Default theme
-import { Themes } from './shared/shared-common/enums/themes';
 
 @Component({
   selector: 'app-root',
