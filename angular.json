@@ -41,8 +41,13 @@
                 "inject": false
               },
               {
-                "input": "src/styles/modules/lazy/index.scss",
-                "bundleName": "lazy-module",
+                "input": "src/styles/modules/lazy/themes/light/index.scss",
+                "bundleName": "lazy-module_theme-light",
+                "inject": false
+              },
+              {
+                "input": "src/styles/modules/lazy/themes/dark/index.scss",
+                "bundleName": "lazy-module_theme-dark",
                 "inject": false
               }
             ],
