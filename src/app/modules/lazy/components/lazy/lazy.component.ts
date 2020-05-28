@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+
+import { ThemeService } from 'src/app/core/services/theme.service';
+import { Themes } from 'src/app/core/enums/themes';
 
 @Component({
   selector: 'app-lazy',
@@ -6,11 +10,23 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./lazy.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LazyComponent implements OnInit {
+export class LazyComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  public theme$: Observable<Themes>;
+  private _themeChangeSubscr: Subscription;
+
+  constructor(private _themesService: ThemeService) { }
 
   ngOnInit(): void {
+    this.theme$ = this._themesService.theme;
+
+    this._themeChangeSubscr = this.theme$.subscribe(theme => {
+
+    })
   }
 
+  ngOnDestroy(): void {
+    this._themeChangeSubscr.unsubscribe();
+    this._themeChangeSubscr = null;
+  }
 }
