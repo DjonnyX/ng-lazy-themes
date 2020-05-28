@@ -1,5 +1,7 @@
+import { Themes } from '../../enums/themes';
+
 export interface IThemeMiddleware {
     [x: string]: ThemeMiddlewareHandler;
 }
 
-export type ThemeMiddlewareHandler = <F = any>() => Promise<F>;
+export type ThemeMiddlewareHandler = (theme: Themes) => Promise<void>;
