@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { Themes } from 'src/app/core/enums/themes';
@@ -12,11 +11,18 @@ import { Themes } from 'src/app/core/enums/themes';
 })
 export class LazyComponent implements OnInit {
 
-  public theme$: Observable<Themes>;
-
   constructor(private _themesService: ThemeService) { }
 
   ngOnInit(): void {
-    this.theme$ = this._themesService.theme;
+    this._themesService.addMiddleware('root', (theme: Themes) => {
+      if (theme === Themes.DARK)
+        return import('../styles/themes/dark/index.scss' as any).catch(e => {
+          console.error(`Theme "${theme}" can't be loaded. ${e}`);
+        });
+
+      return import('../styles/themes/light/index.scss' as any).catch(e => {
+        console.error(`Theme "${theme}" can't be loaded. ${e}`);
+      });
+    });
   }
 }

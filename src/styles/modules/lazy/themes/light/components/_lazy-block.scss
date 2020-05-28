@@ -1,0 +1,21 @@
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../../../components";
+@import "../abstracts";
+@import "../base";
+
+@mixin lazy-block-theme {
+    @include lazy-block(
+        (
+            lazy-block--primary: (
+                title-color: #2949ff,
+                content-color: white
+            ),
+        )
+    );
+
+    .lazy-block {
+        .lazy-block__title {
+            font-weight: 500;
+        }
+    }
+}

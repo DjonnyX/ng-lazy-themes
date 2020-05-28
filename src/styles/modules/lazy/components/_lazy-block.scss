@@ -1,0 +1,14 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/themes/themify";
+
+@mixin lazy-block {
+    .lazy-block {
+        @include themify($themes) {
+            .lazy-block__title {
+                color: themed(title-color);
+            }
+            .lazy-block__content {
+                color: themed(content-color);
+            }
+        }
+    }
+}
