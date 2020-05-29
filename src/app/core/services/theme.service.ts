@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { Themes } from '../enums/themes';
 import { IThemeMiddleware, ThemeMiddlewareHandler } from './interfaces/theme-middleware';
 
