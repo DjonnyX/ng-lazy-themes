@@ -15,7 +15,7 @@ export class ThemeService {
   public theme$ = this._theme$.asObservable();
 
   private _isLoading$ = new BehaviorSubject<boolean>(false);
-  public isLoading = this._isLoading$.asObservable();
+  public isLoading$ = this._isLoading$.asObservable();
 
   private _middlewares: IThemeMiddleware = {};
 

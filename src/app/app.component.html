@@ -1,157 +1,168 @@
+<!-- busy-indicator -->
 <div class="root" [ngClass]="theme$ | async">
-  <div class="header">
-    <button class="button button--primary" (click)="toggleTheme()">{{theme$ | async}}</button>
-  </div>
+  <ng-container *ngIf="isThemeLoading$ | async; else showContent">
+    <div style="display: flex; height: 100vh;">
+      <div class="busy-indicator busy-indicator--primary">
+        <div class="busy-indicator__thumb icon-loader"></div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- content -->
+  <ng-template #showContent>
+    <div class="header">
+      <button class="button button--primary" (click)="toggleTheme()">{{theme$ | async}}</button>
+    </div>
 
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 
-  <form class="form form--primary z-elevation-2">
-    <h2>Checkboxes</h2>
-    <!-- Checkbox -->
-    <div style="display: flex; flex-direction: column;">
-      <label class="check check--primary">
-        <input type="checkbox">
-        <span class="thumb"></span>Checkbox primary
-      </label>
+    <form class="form form--primary z-elevation-2">
+      <h2>Checkboxes</h2>
       <!-- Checkbox -->
-      <label class="check check--secondary">
-        <input type="checkbox">
-        <span class="thumb"></span>Checkbox secondary
+      <div style="display: flex; flex-direction: column;">
+        <label class="check check--primary">
+          <input type="checkbox">
+          <span class="thumb"></span>Checkbox primary
+        </label>
+        <!-- Checkbox -->
+        <label class="check check--secondary">
+          <input type="checkbox">
+          <span class="thumb"></span>Checkbox secondary
+        </label>
+      </div>
+    </form>
+
+    <form class="form form--primary z-elevation-2">
+      <h2>Radio</h2>
+      <!-- Radio -->
+      <label class="radio radio--primary">
+        <input name="radio" type="radio" value="">
+        <span class="thumb"></span>Radio 1
       </label>
-    </div>
-  </form>
+      <!-- Radio -->
+      <label class="radio radio--primary">
+        <input name="radio" type="radio" value="">
+        <span class="thumb"></span>Radio 2
+      </label>
+      <!-- Radio -->
+      <label class="radio radio--primary">
+        <input name="radio" type="radio" value="">
+        <span class="thumb"></span>Radio 3
+      </label>
+    </form>
 
-  <form class="form form--primary z-elevation-2">
-    <h2>Radio</h2>
-    <!-- Radio -->
-    <label class="radio radio--primary">
-      <input name="radio" type="radio" value="">
-      <span class="thumb"></span>Radio 1
-    </label>
-    <!-- Radio -->
-    <label class="radio radio--primary">
-      <input name="radio" type="radio" value="">
-      <span class="thumb"></span>Radio 2
-    </label>
-    <!-- Radio -->
-    <label class="radio radio--primary">
-      <input name="radio" type="radio" value="">
-      <span class="thumb"></span>Radio 3
-    </label>
-  </form>
+    <form class="form form--primary z-elevation-6">
+      <h2>Inputs</h2>
+      <!-- input -->
+      <label class="input input--primary" style="max-width: 350px; display: block;">
+        <span class="input-label">name*</span>
+        <input placeholder="Placeholder" type="text">
+      </label>
+      <!-- input -->
+      <label class="input input--primary" style="max-width: 350px; display: block;">
+        <span class="input-label">name*</span>
+        <input placeholder="Disabled" type="text" disabled>
+      </label>
+      <!-- input -->
+      <label class="input input--primary" style="max-width: 350px; display: block;">
+        <span class="input-label">name*</span>
+        <input placeholder="Invalid" type="text" class="ng-touched ng-invalid">
+        <div class="validator message">* fill the field</div>
+      </label>
+    </form>
 
-  <form class="form form--primary z-elevation-6">
-    <h2>Inputs</h2>
-    <!-- input -->
-    <label class="input input--primary" style="max-width: 350px; display: block;">
-      <span class="input-label">name*</span>
-      <input placeholder="Placeholder" type="text">
-    </label>
-    <!-- input -->
-    <label class="input input--primary" style="max-width: 350px; display: block;">
-      <span class="input-label">name*</span>
-      <input placeholder="Disabled" type="text" disabled>
-    </label>
-    <!-- input -->
-    <label class="input input--primary" style="max-width: 350px; display: block;">
-      <span class="input-label">name*</span>
-      <input placeholder="Invalid" type="text" class="ng-touched ng-invalid">
-      <div class="validator message">* fill the field</div>
-    </label>
-  </form>
+    <form class="form form--primary z-elevation-6">
+      <h2>Select</h2>
+      <!-- Select -->
+      <div class="label">Select</div>
+      <div class="select select--primary --full-width">
+        <select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+          <option>Option 4</option>
+        </select>
+      </div>
+    </form>
 
-  <form class="form form--primary z-elevation-6">
-    <h2>Select</h2>
-    <!-- Select -->
-    <div class="label">Select</div>
-    <div class="select select--primary --full-width">
-      <select>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-        <option>Option 4</option>
-      </select>
-    </div>
-  </form>
+    <form class="form form--primary z-elevation-2">
+      <h2>Table</h2>
+      <!-- Table -->
+      <table class="table table--primary">
+        <thead>
+          <tr>
+            <th class="text-left">Header 1</th>
+            <th class="text-center">Header 2</th>
+            <th class="text-center">Header 3</th>
+            <th class="text-right">Header 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left">Lemon</td>
+            <td class="text-center">Orange</td>
+            <td class="td-center">
+              <label class="check check--primary">
+                <input type="checkbox">
+                <span class="thumb"></span>
+              </label>
+            </td>
+            <td class="text-right">Kiwi</td>
+          </tr>
+          <tr>
+            <td class="text-left">Sugar</td>
+            <td class="text-center">Salt</td>
+            <td class="td-center">
+              <label class="check check--primary">
+                <input type="checkbox">
+                <span class="thumb"></span>
+              </label>
+            </td>
+            <td class="text-right">Pepper</td>
+          </tr>
+          <tr>
+            <td class="text-left">Fork</td>
+            <td class="text-center">Knife</td>
+            <td class="td-center">
+              <label class="check check--primary">
+                <input type="checkbox">
+                <span class="thumb"></span>
+              </label>
+            </td>
+            <td class="text-right">Spoon</td>
+          </tr>
+          <tr>
+            <td class="text-left">Cup</td>
+            <td class="text-center">Glass</td>
+            <td class="td-center">
+              <label class="check check--primary">
+                <input type="checkbox">
+                <span class="thumb"></span>
+              </label>
+            </td>
+            <td class="text-right">Pitcher</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
 
-  <form class="form form--primary z-elevation-2">
-    <h2>Table</h2>
-    <!-- Table -->
-    <table class="table table--primary">
-      <thead>
-        <tr>
-          <th class="text-left">Header 1</th>
-          <th class="text-center">Header 2</th>
-          <th class="text-center">Header 3</th>
-          <th class="text-right">Header 4</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-left">Lemon</td>
-          <td class="text-center">Orange</td>
-          <td class="td-center">
-            <label class="check check--primary">
-              <input type="checkbox">
-              <span class="thumb"></span>
-            </label>
-          </td>
-          <td class="text-right">Kiwi</td>
-        </tr>
-        <tr>
-          <td class="text-left">Sugar</td>
-          <td class="text-center">Salt</td>
-          <td class="td-center">
-            <label class="check check--primary">
-              <input type="checkbox">
-              <span class="thumb"></span>
-            </label>
-          </td>
-          <td class="text-right">Pepper</td>
-        </tr>
-        <tr>
-          <td class="text-left">Fork</td>
-          <td class="text-center">Knife</td>
-          <td class="td-center">
-            <label class="check check--primary">
-              <input type="checkbox">
-              <span class="thumb"></span>
-            </label>
-          </td>
-          <td class="text-right">Spoon</td>
-        </tr>
-        <tr>
-          <td class="text-left">Cup</td>
-          <td class="text-center">Glass</td>
-          <td class="td-center">
-            <label class="check check--primary">
-              <input type="checkbox">
-              <span class="thumb"></span>
-            </label>
-          </td>
-          <td class="text-right">Pitcher</td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
+    <form class="form form--primary z-elevation-4">
+      <h2>Buttons</h2>
+      <!-- Button -->
+      <button class="button button--primary">primary</button>
+      <button class="button button--orange">orange</button>
+      <button class="button button--red">red</button>
+      <button class="button button--blue">blue</button>
+    </form>
 
-  <form class="form form--primary z-elevation-4">
-    <h2>Buttons</h2>
-    <!-- Button -->
-    <button class="button button--primary">primary</button>
-    <button class="button button--orange">orange</button>
-    <button class="button button--red">red</button>
-    <button class="button button--blue">blue</button>
-  </form>
-
-  <form class="form form--primary z-elevation-8">
-    <h2>Tabs</h2>
-    <!-- tabs -->
-    <div class="tabs tabs--primary">
-      <a href="#" title="Tab 1" class="tabs-item">Tab 1</a>
-      <a href="#" title="Tab 2" class="tabs-item is-selected">Tab 2</a>
-      <a href="#" title="Tab 3" class="tabs-item">Tab 3</a>
-      <a href="#" title="Tab 4" class="tabs-item">Tab 4</a>
-    </div>
-  </form>
+    <form class="form form--primary z-elevation-8">
+      <h2>Tabs</h2>
+      <!-- tabs -->
+      <div class="tabs tabs--primary">
+        <a href="#" title="Tab 1" class="tabs-item">Tab 1</a>
+        <a href="#" title="Tab 2" class="tabs-item is-selected">Tab 2</a>
+        <a href="#" title="Tab 3" class="tabs-item">Tab 3</a>
+        <a href="#" title="Tab 4" class="tabs-item">Tab 4</a>
+      </div>
+    </form>
+  </ng-template>
 </div>

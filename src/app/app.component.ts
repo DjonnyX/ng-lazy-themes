@@ -14,11 +14,13 @@ import { Themes } from './core/enums/themes';
 export class AppComponent implements OnInit {
 
   public theme$: Observable<Themes>;
+  public isThemeLoading$: Observable<boolean>;
 
   constructor(private _themesService: ThemeService) { }
 
   ngOnInit() {
     this.theme$ = this._themesService.theme$;
+    this.isThemeLoading$ = this._themesService.isLoading$;
 
     this._themesService.addMiddleware('root', (theme: Themes) => {
       if (theme === Themes.DARK)

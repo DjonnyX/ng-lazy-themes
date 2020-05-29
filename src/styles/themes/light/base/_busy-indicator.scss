@@ -1,0 +1,16 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/busy-indicator";
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../abstracts";
+
+@mixin busy-indicator-theme {
+    @include busy-indicator(
+        (
+            busy-indicator--primary: (
+                overlay-bg: rgba(255, 255, 255, 1),
+                fixed-bg: transparent,
+                thumb-color: $color-blue-gray,
+                thumb-size: px2rem(20),
+            ),
+        )
+    );
+}
