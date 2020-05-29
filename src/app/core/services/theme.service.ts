@@ -9,8 +9,6 @@ import { IThemeMiddleware, ThemeMiddlewareHandler } from './interfaces/theme-mid
 })
 export class ThemeService {
 
-  // private _currentTheme: Themes = Themes.LIGHT;
-
   private _theme$ = new BehaviorSubject<Themes>(Themes.LIGHT);
   public theme$ = this._theme$.asObservable();
 
