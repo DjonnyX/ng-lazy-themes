@@ -70,13 +70,6 @@ export class ThemeService {
       middlewares.push(handler);
     }
 
-    /*Promise.all(middlewares).finally(() => {
-      if (this._isLoading$.value === true) {
-        this._theme$.next(theme);
-        this._isLoading$.next(false);
-      }
-    })*/
-
     this._subscription = forkJoin(middlewares).subscribe(
       () => {
         this._theme$.next(theme);

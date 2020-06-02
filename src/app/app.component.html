@@ -8,7 +8,7 @@
     </div>
   </ng-container>
   <!-- content -->
-  <ng-container>
+  <div [style.display]="(isThemeLoading$ | async) ? 'none' : 'inherit'">
     <div class="header">
       <button class="button button--primary" (click)="toggleTheme()">{{theme$ | async}}</button>
     </div>
@@ -164,5 +164,5 @@
         <a href="#" title="Tab 4" class="tabs-item">Tab 4</a>
       </div>
     </form>
-  </ng-container>
+  </div>
 </div>
