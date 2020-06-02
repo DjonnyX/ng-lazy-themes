@@ -1,6 +1,6 @@
 <!-- busy-indicator -->
 <div class="root" [ngClass]="theme$ | async">
-  <ng-container *ngIf="isThemeLoading$ | async; else showContent">
+  <ng-container *ngIf="isThemeLoading$ | async">
     <div style="display: flex; height: 100vh;">
       <div class="busy-indicator busy-indicator--primary">
         <div class="busy-indicator__thumb icon-loader"></div>
@@ -8,7 +8,7 @@
     </div>
   </ng-container>
   <!-- content -->
-  <ng-template #showContent>
+  <ng-container [hidden]="!(isThemeLoading$ | async)">
     <div class="header">
       <button class="button button--primary" (click)="toggleTheme()">{{theme$ | async}}</button>
     </div>
@@ -164,5 +164,5 @@
         <a href="#" title="Tab 4" class="tabs-item">Tab 4</a>
       </div>
     </form>
-  </ng-template>
+  </ng-container>
 </div>
