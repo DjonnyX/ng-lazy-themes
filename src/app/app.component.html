@@ -8,7 +8,7 @@
     </div>
   </ng-container>
   <!-- content -->
-  <ng-container [hidden]="!(isThemeLoading$ | async)">
+  <ng-container>
     <div class="header">
       <button class="button button--primary" (click)="toggleTheme()">{{theme$ | async}}</button>
     </div>
