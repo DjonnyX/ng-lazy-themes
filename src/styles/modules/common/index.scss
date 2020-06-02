@@ -1,2 +1,11 @@
+@import "./components";
 @import "./abstracts";
 @import "./layouts";
+
+.light {
+    @include busy-indicator-light-theme();
+}
+
+.dark {
+    @include busy-indicator-dark-theme();
+}

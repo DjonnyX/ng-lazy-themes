@@ -10,7 +10,6 @@
     @include validation($color-red);
 
     // base components
-    @include busy-indicator-theme();
     @include check-theme();
     @include radio-theme();
     @include select-theme();

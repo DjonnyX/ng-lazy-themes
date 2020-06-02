@@ -1,8 +1,8 @@
 @import "../../../../../node_modules/@iconsoft/ui-kit/src/components/busy-indicator";
 @import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
-@import "../abstracts";
+@import "../../../themes/dark/abstracts";
 
-@mixin busy-indicator-theme {
+@mixin busy-indicator-dark-theme {
     @include busy-indicator(
         (
             busy-indicator--primary: (
