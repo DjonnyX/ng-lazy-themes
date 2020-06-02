@@ -1,0 +1,7 @@
+@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: px2rem(25);
+}
