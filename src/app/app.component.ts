@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private _themesService: ThemeService) { }
 
   ngOnInit() {
+
     this.theme$ = this._themesService.theme$;
     this.isThemeLoading$ = this._themesService.isLoading$;
 
@@ -30,9 +31,6 @@ export class AppComponent implements OnInit {
         console.error(`Theme "${theme}" can't be loaded. ${e}`);
       });
     });
-
-    // load current theme
-    this._themesService.reload();
   }
 
   toggleTheme() {
