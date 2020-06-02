@@ -1,21 +1,21 @@
-@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/select";
-@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/components/select";
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
 @import "../abstracts";
 
 @mixin select-theme {
     @include select(
         (
             select--primary: (
-                bg-color: #3c3c3c,
-                icon: "~/assets/icons/select1.svg",
+                bg-color: white,
+                icon: "~/assets/icons/select.svg",
                 icon-size: px2rem(20),
                 m-right: px2rem(16),
-                font-color: white,
+                font-color: black,
                 font-size: inherit,
                 line-height: px2rem(20),
                 padding: px2rem(5) px2rem(8),
                 padding-right: px2rem(24),
-                bg-focused: #474747,
+                bg-focused: #f6f6f6,
                 border: px2rem(1) solid #898989,
                 border-focused: px2rem(1) solid #898989,
                 border-radius: px2rem(7),

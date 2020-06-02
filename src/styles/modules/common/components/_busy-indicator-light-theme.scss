@@ -1,6 +1,6 @@
 @import "../../../../../node_modules/@iconsoft/ui-kit/src/components/busy-indicator";
 @import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
-@import "../../../themes/light/abstracts";
+@import "../../../modules/root/themes/light/abstracts";
 
 @mixin busy-indicator-light-theme {
     @include busy-indicator(

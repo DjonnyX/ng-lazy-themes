@@ -31,13 +31,13 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "src/styles/themes/dark/index.scss",
-                "bundleName": "theme-dark",
+                "input": "src/styles/modules/root/themes/dark/index.scss",
+                "bundleName": "root-module_theme-dark",
                 "inject": false
               },
               {
-                "input": "src/styles/themes/light/index.scss",
-                "bundleName": "theme-light",
+                "input": "src/styles/modules/root/themes/light/index.scss",
+                "bundleName": "root-module_theme-light",
                 "inject": false
               },
               {

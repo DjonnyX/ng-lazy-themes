@@ -1,11 +1,11 @@
-@import "../../../../node_modules/@iconsoft/ui-kit/src/components/typography";
-@import "../../../../node_modules/@iconsoft/ui-kit/src/modifiers/validation";
-@import "../../../../node_modules/@iconsoft/ui-kit/src/modifiers/elevation";
+@import "../../../../../../node_modules/@iconsoft/ui-kit/src/components/typography";
+@import "../../../../../../node_modules/@iconsoft/ui-kit/src/modifiers/validation";
+@import "../../../../../../node_modules/@iconsoft/ui-kit/src/modifiers/elevation";
 @import "./components";
 @import "./abstracts";
 @import "./base";
 
-.light {
+.dark {
     @include z-elevation();
     @include validation($color-red);
 
@@ -24,7 +24,7 @@
 
     &.root {
         transition: all 0.1s ease-in-out;
-        background-color: #e9e9e9;
+        background-color: #525252;
         min-height: 100vh;
     }
 

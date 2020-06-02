@@ -1,32 +1,28 @@
-@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/button";
-@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/components/button";
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
 @import "../abstracts";
 
 @mixin button-theme {
     @include button(
         (
             button--primary: (
-                bg-normal: $color-blue-gray,
+                bg-normal: #ebeeef,
                 bg-disabled: $color-gray-40,
-                ripple-color: $button-ripple-color,
-                font-color: white,
+                font-color: black,
             ),
             button--orange: (
                 bg-normal: $color-orange,
                 bg-disabled: $color-orange-40,
-                ripple-color: $button-ripple-color,
                 font-color: white,
             ),
             button--red: (
                 bg-normal: $color-red,
                 bg-disabled: $color-red-40,
-                ripple-color: $button-ripple-color,
                 font-color: white,
             ),
             button--blue: (
                 bg-normal: $color-blue,
                 bg-disabled: $color-blue-40,
-                ripple-color: $button-ripple-color,
                 font-color: white,
             ),
         )

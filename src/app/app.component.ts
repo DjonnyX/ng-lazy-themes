@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
 
     this._themesService.addMiddleware('root', (theme: Themes) => {
       if (theme === Themes.DARK)
-        return import('../styles/themes/dark/index.scss' as any).catch(e => {
+        return import('../styles/modules/root/themes/dark/index.scss' as any).catch(e => {
           console.error(`Theme "${theme}" can't be loaded. ${e}`);
         });
 
-      return import('../styles/themes/light/index.scss' as any).catch(e => {
+      return import('../styles/modules/root/themes/light/index.scss' as any).catch(e => {
         console.error(`Theme "${theme}" can't be loaded. ${e}`);
       });
     });

@@ -1,15 +1,15 @@
-@import "../../../../../node_modules/@iconsoft/ui-kit/src/components/input";
-@import "../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/components/input";
+@import "../../../../../../../node_modules/@iconsoft/ui-kit/src/utils/px2rem";
 @import "../abstracts/";
 
 @mixin input-theme {
     @include input(
         (
             input--primary: (
-                bg-normal: $color-main-background,
-                bg-disabled: #e1e1e1,
-                placeholder-color: rgb(66, 66, 66),
-                placeholder-disabled-color: rgb(121, 121, 121),
+                bg-normal: #3c3c3c,
+                bg-disabled: #616161,
+                placeholder-color: rgb(177, 177, 177),
+                placeholder-disabled-color: #898989,
                 border: px2rem(1) solid #898989,
                 focused-border: px2rem(1) solid #0e8897,
             ),
